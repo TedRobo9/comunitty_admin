@@ -1,68 +1,168 @@
-package com.uacity.admin.domain;
+package com.ws.db.model;
 
+import java.sql.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
-/**
- * Created by Ted on 16/6/5.
- */
+@Entity(name = "HC_SYS_MENU")
 public class Menu {
+	
+	@Id
+	@Column(name="mid")  
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int mid;
+	
+	@Column(name="parentid") 
+	private String parentid;
+	
+	@OneToMany(mappedBy="parentid",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    private List<Menu> submenu;
+	
+	@Column(name="mname") 
+	private String mname;
+	
+	@Column(name="mdesc") 
+	private String mdesc;
+	
+	@Column(name="actionurl") 
+	private String actionurl;
+	
+	@Column(name="msort") 
+	private int msort = 0;
+	
+	@Column(name="isvalid") 
+	private boolean isvalid;
+	
+	@Column(name="optusername") 
+	private String optusername;
+	
+	@Column(name="isleaf") 
+	private boolean isleaf;
+	
+	@Column(name="levelno") 
+	private int levelno;
+	
+	@Column(name="style") 
+	private String style;
+	
+	@Column(name="remark") 
+	private String remark;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	public int getMid() {
+		return mid;
+	}
 
-    @Column(name = "name", nullable = false)
-    private String name;
+	public String getParentid() {
+		return parentid;
+	}
 
-    @Column(name = "url", nullable = false)
-    private String url;
+	public void setParentid(String parentid) {
+		this.parentid = parentid;
+	}
 
-    @Column(name = "parendId", nullable = false)
-    private Long parendId;
+	public void setMid(int mid) {
+		this.mid = mid;
+	}
 
-    @Column(name = "sort", nullable = false)
-    private Integer sort;
+	public List<Menu> getSubmenu() {
+		return submenu;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setSubmenu(List<Menu> submenu) {
+		this.submenu = submenu;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getMname() {
+		return mname;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getMdesc() {
+		return mdesc;
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public void setMdesc(String mdesc) {
+		this.mdesc = mdesc;
+	}
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+	public String getActionurl() {
+		return actionurl;
+	}
 
-    public Long getParendId() {
-        return parendId;
-    }
+	public void setActionurl(String actionurl) {
+		this.actionurl = actionurl;
+	}
 
-    public void setParendId(Long parendId) {
-        this.parendId = parendId;
-    }
+	public int getMsort() {
+		return msort;
+	}
 
-    public Integer getSort() {
-        return sort;
-    }
+	public void setMsort(int msort) {
+		this.msort = msort;
+	}
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
+	public boolean isIsvalid() {
+		return isvalid;
+	}
+
+	public void setIsvalid(boolean isvalid) {
+		this.isvalid = isvalid;
+	}
+
+	public String getOptusername() {
+		return optusername;
+	}
+
+	public void setOptusername(String optusername) {
+		this.optusername = optusername;
+	}
+
+	public boolean isIsleaf() {
+		return isleaf;
+	}
+
+	public void setIsleaf(boolean isleaf) {
+		this.isleaf = isleaf;
+	}
+
+	public int getLevelno() {
+		return levelno;
+	}
+
+	public void setLevelno(int levelno) {
+		this.levelno = levelno;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public String getStyle() {
+		return style;
+	}
+
+	public void setStyle(String style) {
+		this.style = style;
+	}
+	
+	
 }
