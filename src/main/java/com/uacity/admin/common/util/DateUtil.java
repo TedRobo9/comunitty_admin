@@ -1,4 +1,4 @@
-package com.ws.common.util;
+package com.uacity.admin.common.util;
 
 import java.sql.Timestamp;
 import java.text.ParseException;

@@ -1,4 +1,4 @@
-package com.ws.common.util;
+package com.uacity.admin.common.util;
 
 
 import java.security.MessageDigest;

@@ -1,4 +1,4 @@
-package com.ws.db.model;
+package com.uacity.admin.domain;
 
 
 import java.sql.Date;

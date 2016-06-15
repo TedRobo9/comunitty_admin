@@ -1,4 +1,4 @@
-package com.ws.web.filter;
+package com.uacity.admin.filter;
 
 import java.io.IOException;
 

@@ -1,9 +1,9 @@
-package com.ws.db.model;
+package com.uacity.admin.domain;
 
 public enum Usex {
 
-	male,//ÄÐ
-	female,//Å®
-	secret;//±£ÃÜ
+	male,//
+	female,//
+	secret;//
 	
 }

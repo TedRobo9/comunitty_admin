@@ -1,4 +1,4 @@
-package com.ws.db.model;
+package com.uacity.admin.domain;
 
 //存储 类Order （订单主表  HC_BIZ_ORDER） 中的   orderstate 状态
 

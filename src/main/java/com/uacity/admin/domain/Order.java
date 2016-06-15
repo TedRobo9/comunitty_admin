@@ -1,28 +1,13 @@
-package com.ws.db.model;
-
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Transient;
-
-import org.springframework.format.annotation.DateTimeFormat;
+package com.uacity.admin.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.ws.common.util.JsonDateSerializer;
+import com.uacity.admin.common.util.JsonDateSerializer;
+
+import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.List;
 
 
 

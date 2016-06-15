@@ -1,12 +1,12 @@
-package com.ws.db.model;
+package com.uacity.admin.domain;
 
 	public enum GetType {
 	
-		consumption ,//消费
-		commission,//分佣
-		giving,//赠送
-		other,//其他
-		share,//分红
-		reward;//奖励
+		consumption ,//
+		commission,//
+		giving,//
+		other,//
+		share,//
+		reward;//
 	
 	}

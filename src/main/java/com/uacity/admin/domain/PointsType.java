@@ -1,9 +1,8 @@
-package com.ws.db.model;
+package com.uacity.admin.domain;
 
 	public enum PointsType {
 		
-		spending,//支出
-		income;//收入
-		
+		spending,//
+		income;//
 		
 	}

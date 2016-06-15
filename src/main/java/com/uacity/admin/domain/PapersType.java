@@ -1,9 +1,9 @@
-package com.ws.db.model;
+package com.uacity.admin.domain;
 
 public enum PapersType {
 
-	Idcard,//身份证
-	passport,//护照
-	soldier;//军官证
+	Idcard,//
+	passport,//
+	soldier;//
 	
 }

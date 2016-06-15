@@ -1,4 +1,4 @@
-package com.ws.web.controller;
+package com.uacity.admin.controller;
 
 import java.util.Date;
 import java.util.HashMap;

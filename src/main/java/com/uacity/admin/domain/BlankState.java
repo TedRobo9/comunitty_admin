@@ -1,9 +1,9 @@
-package com.ws.db.model;
+package com.uacity.admin.domain;
 
 public enum BlankState {
 	
-	apply,//������
-	overmoney,//�Ѵ��
-	completed;//�����
+	apply,//
+	overmoney,//
+	completed;//
 	
 }
