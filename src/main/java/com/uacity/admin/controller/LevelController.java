@@ -1,11 +1,7 @@
-package com.ws.web.controller;
+package com.uacity.admin.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-
-
+import com.uacity.admin.domain.Level;
+import com.uacity.admin.service.level.LevelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ws.db.model.Level;
-import com.ws.service.level.LevelService;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 @Controller  
 @RequestMapping("/level")
@@ -26,7 +24,7 @@ public class LevelController {
 	
 	@RequestMapping(value="/search" , method = RequestMethod.POST, consumes="application/json")
 	@ResponseBody 
-	public Map<String, Object> search(@RequestBody Level level){ 
+	public Map<String, Object> search(@RequestBody Level level){
 		System.out.println("search level");
 		List<Level> list = levelService.search(level);
 		Map<String, Object> modelMap = new HashMap<String, Object>();  

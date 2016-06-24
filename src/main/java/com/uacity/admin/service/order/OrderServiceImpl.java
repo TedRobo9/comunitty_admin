@@ -1,19 +1,18 @@
-package com.ws.service.order;
+package com.uacity.admin.service.order;
 
+import com.uacity.admin.common.util.SystemConstant;
+import com.uacity.admin.dao.OrderDao;
+import com.uacity.admin.dao.SubOrderDao;
+import com.uacity.admin.domain.Order;
+import com.uacity.admin.domain.OrderState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.ws.constant.SystemConstant;
-import com.ws.db.dao.OrderDao;
-import com.ws.db.dao.SubOrderDao;
-import com.ws.db.model.Order;
-import com.ws.db.model.OrderState;
-
 @Service("OrderService")
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
 
 	@Autowired 
 	private OrderDao dao;
@@ -22,7 +21,7 @@ public class OrderServiceImpl implements OrderService{
 	private SubOrderDao subOrderDao;
 	
 	public void save(Order order){
-		dao.save(order);
+//		dao.save(order);
 	}
 
 	@Override

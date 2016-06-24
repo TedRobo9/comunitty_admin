@@ -1,21 +1,19 @@
-package com.ws.web.controller;
+package com.uacity.admin.controller;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
-
+import com.uacity.admin.common.util.DateUtil;
+import com.uacity.admin.common.util.MD5Util;
+import com.uacity.admin.domain.AdminInfo;
+import com.uacity.admin.service.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ws.common.util.DateUtil;
-import com.ws.common.util.MD5Util;
-import com.ws.db.model.AdminInfo;
-import com.ws.service.admin.AdminService;
+import javax.servlet.http.HttpSession;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller  
 @RequestMapping("/login")
@@ -26,7 +24,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/login222")  
 	@ResponseBody  
-	public Object test(@RequestBody AdminInfo admin){  
+	public Object test(@RequestBody AdminInfo admin){
 		Map<String, Object> modelMap = new HashMap<String, Object>(); 
 		modelMap.put("success", "true");
 		return modelMap; 

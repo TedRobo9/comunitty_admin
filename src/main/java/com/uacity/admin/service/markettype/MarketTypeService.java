@@ -1,8 +1,8 @@
-package com.ws.service.markettype;
+package com.uacity.admin.service.markettype;
+
+import com.uacity.admin.domain.MarketType;
 
 import java.util.List;
-
-import com.ws.db.model.MarketType;
 
 public interface MarketTypeService {
 

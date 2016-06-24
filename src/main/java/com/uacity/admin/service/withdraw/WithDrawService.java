@@ -1,8 +1,7 @@
-package com.ws.service.withdraw;
+package com.uacity.admin.service.withdraw;
 
+import com.uacity.admin.domain.WithDraw;
 import org.springframework.data.domain.Page;
-
-import com.ws.db.model.WithDraw;
 
 public interface WithDrawService {
 

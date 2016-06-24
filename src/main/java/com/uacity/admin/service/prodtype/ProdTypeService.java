@@ -1,8 +1,8 @@
-package com.ws.service.prodtype;
+package com.uacity.admin.service.prodtype;
+
+import com.uacity.admin.domain.ProdType;
 
 import java.util.List;
-
-import com.ws.db.model.ProdType;
 
 public interface ProdTypeService {
 

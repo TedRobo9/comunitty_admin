@@ -1,8 +1,7 @@
-package com.ws.service.prod;
+package com.uacity.admin.service.prod;
 
+import com.uacity.admin.domain.Prod;
 import org.springframework.data.domain.Page;
-
-import com.ws.db.model.Prod;
 
 public interface ProdService {
 

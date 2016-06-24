@@ -1,9 +1,10 @@
-package com.ws.web.controller;
+package com.uacity.admin.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.uacity.admin.common.util.SystemConstant;
+import com.uacity.admin.domain.Order;
+import com.uacity.admin.domain.OrderState;
+import com.uacity.admin.domain.SubOrder;
+import com.uacity.admin.service.order.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -12,12 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ws.constant.SystemConstant;
-import com.ws.db.model.AdminInfo;
-import com.ws.db.model.Order;
-import com.ws.db.model.OrderState;
-import com.ws.db.model.SubOrder;
-import com.ws.service.order.OrderService;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 @Controller  
 @RequestMapping("/order")

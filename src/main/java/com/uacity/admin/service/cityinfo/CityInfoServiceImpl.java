@@ -1,18 +1,15 @@
-package com.ws.service.cityinfo;
+package com.uacity.admin.service.cityinfo;
 
-import java.util.List;
-
+import com.uacity.admin.dao.CityInfoDao;
+import com.uacity.admin.domain.CityInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ws.db.dao.AccountDao;
-import com.ws.db.dao.CityInfoDao;
-import com.ws.db.model.Account;
-import com.ws.db.model.CityInfo;
+import java.util.List;
 
 
 @Service("cityinfoService")
-public class CityInfoServiceImpl implements CityInfoService{
+public class CityInfoServiceImpl implements CityInfoService {
 
 	@Autowired 
 	private CityInfoDao dao;

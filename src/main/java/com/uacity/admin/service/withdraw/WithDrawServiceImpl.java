@@ -1,15 +1,14 @@
-package com.ws.service.withdraw;
+package com.uacity.admin.service.withdraw;
 
+import com.uacity.admin.common.util.SystemConstant;
+import com.uacity.admin.dao.WithDrawDao;
+import com.uacity.admin.domain.WithDraw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.ws.constant.SystemConstant;
-import com.ws.db.dao.AdminDao;
-import com.ws.db.dao.WithDrawDao;
-import com.ws.db.model.WithDraw;
 
 @Service("withdrawService")
 public class WithDrawServiceImpl implements WithDrawService{

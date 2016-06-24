@@ -1,12 +1,11 @@
-package com.ws.service.markettype;
+package com.uacity.admin.service.markettype;
 
-import java.util.List;
-
+import com.uacity.admin.dao.MarketTypeDao;
+import com.uacity.admin.domain.MarketType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ws.db.dao.MarketTypeDao;
-import com.ws.db.model.MarketType;
+import java.util.List;
 
 @Service("marketTypeService")
 public class MarketTypeServiceImpl implements MarketTypeService {

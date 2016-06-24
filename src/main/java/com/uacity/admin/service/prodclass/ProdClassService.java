@@ -1,8 +1,8 @@
-package com.ws.service.prodclass;
+package com.uacity.admin.service.prodclass;
+
+import com.uacity.admin.domain.ProdClass;
 
 import java.util.List;
-
-import com.ws.db.model.ProdClass;
 
 public interface ProdClassService {
 

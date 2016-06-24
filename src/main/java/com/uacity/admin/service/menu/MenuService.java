@@ -1,8 +1,8 @@
-package com.ws.service.menu;
+package com.uacity.admin.service.menu;
+
+import com.uacity.admin.domain.Menu;
 
 import java.util.List;
-
-import com.ws.db.model.Menu;
 
 public interface MenuService {
 

@@ -1,12 +1,11 @@
-package com.ws.service.level;
+package com.uacity.admin.service.level;
 
-import java.util.List;
-
+import com.uacity.admin.dao.LevelDao;
+import com.uacity.admin.domain.Level;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ws.db.dao.LevelDao;
-import com.ws.db.model.Level;
+import java.util.List;
 
 @Service("levelService")
 public class LevelServiceImpl implements LevelService {

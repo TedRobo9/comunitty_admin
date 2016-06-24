@@ -1,12 +1,11 @@
-package com.ws.service.prodclass;
+package com.uacity.admin.service.prodclass;
 
-import java.util.List;
-
+import com.uacity.admin.dao.ProdClassDao;
+import com.uacity.admin.domain.ProdClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ws.db.dao.ProdClassDao;
-import com.ws.db.model.ProdClass;
+import java.util.List;
 
 @Service("prodclassService")
 public class ProdClassServiceImpl implements ProdClassService {

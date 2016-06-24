@@ -1,12 +1,9 @@
-package com.ws.db.dao;
+package com.uacity.admin.dao;
 
+import com.uacity.admin.domain.WithDraw;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.ws.db.model.AdminInfo;
-import com.ws.db.model.Menu;
-import com.ws.db.model.WithDraw;
 
 public interface WithDrawDao extends JpaRepository<WithDraw, Integer>{
 	

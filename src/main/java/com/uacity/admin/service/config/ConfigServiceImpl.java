@@ -1,14 +1,11 @@
-package com.ws.service.config;
+package com.uacity.admin.service.config;
 
-import java.util.List;
-
+import com.uacity.admin.dao.ConfigDao;
+import com.uacity.admin.domain.Config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ws.db.dao.ConfigDao;
-import com.ws.db.dao.MenuDao;
-import com.ws.db.model.Config;
-import com.ws.db.model.Menu;
+import java.util.List;
 
 @Service("configService")
 public class ConfigServiceImpl implements ConfigService {

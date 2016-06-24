@@ -1,14 +1,12 @@
-package com.ws.service.integralrecord;
+package com.uacity.admin.service.integralrecord;
 
+import com.uacity.admin.dao.IntegralrecordDao;
+import com.uacity.admin.domain.Integralrecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import com.ws.constant.SystemConstant;
-import com.ws.db.dao.IntegralrecordDao;
-import com.ws.db.model.Integralrecord;
 
 @Service("integralrecordService")
 public class IntegralrecordServiceImpl implements IntegralrecordService{
@@ -23,7 +21,7 @@ public class IntegralrecordServiceImpl implements IntegralrecordService{
 	@Override
 	public Page<Integralrecord> search(String userName,
 			String realName, int page) {
-		Pageable pa = new PageRequest(page, SystemConstant.pageSize);
+//		Pageable pa = new PageRequest(page, SystemConstant.pageSize);
 //		return dao.findByCondition(pa);
 		return null;
 	}

@@ -1,10 +1,9 @@
-package com.ws.db.dao;
+package com.uacity.admin.dao;
 
-import java.util.List;
-
+import com.uacity.admin.domain.SubOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.ws.db.model.SubOrder;
+import java.util.List;
 
 public interface SubOrderDao extends JpaRepository<SubOrder, Integer>{
 

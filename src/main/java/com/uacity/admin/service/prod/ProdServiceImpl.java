@@ -1,15 +1,13 @@
-package com.ws.service.prod;
+package com.uacity.admin.service.prod;
 
+import com.uacity.admin.common.util.SystemConstant;
+import com.uacity.admin.dao.ProdDao;
+import com.uacity.admin.domain.Prod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import com.ws.constant.SystemConstant;
-import com.ws.db.dao.AdminDao;
-import com.ws.db.dao.ProdDao;
-import com.ws.db.model.Prod;
 
 @Service("ProdService")
 public class ProdServiceImpl implements ProdService{

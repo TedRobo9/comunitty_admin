@@ -1,9 +1,7 @@
 package com.uacity.admin.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
-
+import com.uacity.admin.domain.Config;
+import com.uacity.admin.service.config.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ws.db.model.Config;
-import com.ws.service.config.ConfigService;
+import java.util.HashMap;
+import java.util.Map;
+
 
 @Controller  
 @RequestMapping("/config")

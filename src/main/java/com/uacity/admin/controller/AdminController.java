@@ -1,14 +1,9 @@
 package com.uacity.admin.controller;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-
-
-
-
-import org.eclipse.jdt.internal.compiler.impl.Constant;
+import com.uacity.admin.common.util.MD5Util;
+import com.uacity.admin.common.util.SystemConstant;
+import com.uacity.admin.domain.AdminInfo;
+import com.uacity.admin.service.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -17,10 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ws.common.util.MD5Util;
-import com.ws.constant.SystemConstant;
-import com.ws.db.model.AdminInfo;
-import com.ws.service.admin.AdminService;
+import java.util.HashMap;
+import java.util.Map;
+
 
 @Controller  
 @RequestMapping("/adminInfo")
@@ -33,7 +27,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/search" , method = RequestMethod.POST, consumes="application/json")
 	@ResponseBody 
-	public Map<String, Object> search(@RequestBody AdminInfo admin){ 
+	public Map<String, Object> search(@RequestBody AdminInfo admin){
 		System.out.println("search>>>>>>>>>>>>>>>>"+admin.getPage());
 		Page<AdminInfo> p = adminService.search(admin.getUsername(), admin.getRealname(), admin.getPage());
 		Map<String, Object> modelMap = new HashMap<String, Object>();  

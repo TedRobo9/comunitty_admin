@@ -1,13 +1,14 @@
-package com.ws.db.dao;
+package com.uacity.admin.dao;
+
+import com.uacity.admin.domain.Order;
+import com.uacity.admin.domain.OrderState;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.sql.Timestamp;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.ws.db.model.Order;
-import com.ws.db.model.OrderState;
 
 public interface OrderDao extends JpaRepository<Order, Integer>{
 	
@@ -15,7 +16,7 @@ public interface OrderDao extends JpaRepository<Order, Integer>{
 	(String code,String receiveidConsigneename,String receiveidConsigneemobile,Pageable pageable);
 	
 	public Page<Order> findByCodeContainingAndReceiveidConsigneenameContainingAndReceiveidConsigneemobileContainingAndOrderstate
-	(String code,String receiveidConsigneename,String receiveidConsigneemobile,OrderState orderstate,Pageable pageable);
+	(String code, String receiveidConsigneename, String receiveidConsigneemobile, OrderState orderstate, Pageable pageable);
 	
 	public Page<Order> findByOrderstate(OrderState orderstate,Pageable pageable);
 	

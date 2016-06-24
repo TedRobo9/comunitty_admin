@@ -1,12 +1,10 @@
-package com.ws.db.dao;
+package com.uacity.admin.dao;
 
-import java.util.List;
-
+import com.uacity.admin.domain.Level;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.ws.db.model.AdminInfo;
-import com.ws.db.model.Level;
+import java.util.List;
 
 public interface LevelDao extends JpaRepository<Level, Integer>{
 	

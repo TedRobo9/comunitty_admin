@@ -1,14 +1,12 @@
-package com.ws.service.menu;
+package com.uacity.admin.service.menu;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
-
+import com.uacity.admin.dao.MenuDao;
+import com.uacity.admin.domain.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ws.db.dao.MenuDao;
-import com.ws.db.model.Menu;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("menuService")
 public class MenuServiceImpl implements MenuService {

@@ -1,8 +1,7 @@
-package com.ws.service.integralrecord;
+package com.uacity.admin.service.integralrecord;
 
+import com.uacity.admin.domain.Integralrecord;
 import org.springframework.data.domain.Page;
-
-import com.ws.db.model.Integralrecord;
 
 public interface IntegralrecordService {
 

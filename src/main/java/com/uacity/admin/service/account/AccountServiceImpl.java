@@ -1,11 +1,11 @@
-package com.ws.service.account;
+package com.uacity.admin.service.account;
 
-import java.util.List;
-
+import com.uacity.admin.dao.AccountDao;
+import com.uacity.admin.domain.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ws.db.dao.AccountDao;
-import com.ws.db.model.Account;
+
+import java.util.List;
 
 
 @Service("accountService")

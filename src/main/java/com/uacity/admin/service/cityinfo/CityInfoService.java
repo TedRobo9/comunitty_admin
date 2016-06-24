@@ -1,13 +1,8 @@
-package com.ws.service.cityinfo;
+package com.uacity.admin.service.cityinfo;
+
+import com.uacity.admin.domain.CityInfo;
 
 import java.util.List;
-
-import org.springframework.data.domain.Page;
-
-import com.ws.db.model.Account;
-import com.ws.db.model.AdminInfo;
-import com.ws.db.model.CityInfo;
-import com.ws.db.model.Menu;
 
 public interface CityInfoService {
 

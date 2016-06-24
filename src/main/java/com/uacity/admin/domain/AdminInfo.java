@@ -12,8 +12,6 @@ import javax.persistence.Transient;
 
 @Entity(name = "HC_SYS_ADMIN")
 public class AdminInfo {
-	
-	
 
 	@Id
 	@Column(name="userid")  

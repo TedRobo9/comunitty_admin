@@ -1,8 +1,8 @@
-package com.ws.service.level;
+package com.uacity.admin.service.level;
+
+import com.uacity.admin.domain.Level;
 
 import java.util.List;
-
-import com.ws.db.model.Level;
 
 public interface LevelService {
 

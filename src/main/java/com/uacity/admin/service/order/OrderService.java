@@ -1,9 +1,9 @@
-package com.ws.service.order;
+package com.uacity.admin.service.order;
 
+import com.uacity.admin.domain.Order;
+import com.uacity.admin.domain.OrderState;
 import org.springframework.data.domain.Page;
-
-import com.ws.db.model.Order;
-import com.ws.db.model.OrderState;
+import org.springframework.data.domain.Sort;
 
 public interface OrderService {
 

@@ -1,17 +1,16 @@
-package com.ws.service.admin;
+package com.uacity.admin.service.admin;
 
+import com.uacity.admin.dao.AdminDao;
+import com.uacity.admin.domain.AdminInfo;
+import com.uacity.admin.service.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.ws.constant.SystemConstant;
-import com.ws.db.dao.AdminDao;
-import com.ws.db.model.AdminInfo;
-
 @Service("adminService")
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
 
 	@Autowired 
 	private AdminDao dao;
@@ -23,7 +22,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public Page<AdminInfo> search(String userName,
 			String realName, int page) {
-		Pageable pa = new PageRequest(page, SystemConstant.pageSize);
+		Pageable pa = new PageRequest(page, 10);
 		return dao.findByUsernameContainingAndRealnameContaining(userName, realName, pa);
 	}
 

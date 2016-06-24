@@ -1,8 +1,7 @@
-package com.ws.service.admin;
+package com.uacity.admin.service.admin;
 
+import com.uacity.admin.domain.AdminInfo;
 import org.springframework.data.domain.Page;
-
-import com.ws.db.model.AdminInfo;
 
 public interface AdminService {
 

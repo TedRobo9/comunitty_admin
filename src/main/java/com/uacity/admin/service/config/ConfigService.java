@@ -1,9 +1,8 @@
-package com.ws.service.config;
+package com.uacity.admin.service.config;
+
+import com.uacity.admin.domain.Config;
 
 import java.util.List;
-
-import com.ws.db.model.Config;
-import com.ws.db.model.Menu;
 
 public interface ConfigService {
 

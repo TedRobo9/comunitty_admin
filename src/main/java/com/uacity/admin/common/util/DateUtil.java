@@ -18,7 +18,6 @@ import org.springframework.stereotype.Component;
  * Date Utility Class This is used to convert Strings to Dates and Timestamps
  */
 @Component("dateUtil")
-@SuppressWarnings("all")
 public class DateUtil {
 	public final static SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
 			"yyyy-MM-dd");

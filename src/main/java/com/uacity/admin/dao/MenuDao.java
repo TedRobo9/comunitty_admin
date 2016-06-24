@@ -1,12 +1,11 @@
-package com.ws.db.dao;
+package com.uacity.admin.dao;
 
-import java.util.List;
-
+import com.uacity.admin.domain.Menu;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.ws.db.model.Menu;
+import java.util.List;
 
 public interface MenuDao extends JpaRepository<Menu, Integer>{
 	

@@ -1,12 +1,11 @@
-package com.ws.service.prodtype;
+package com.uacity.admin.service.prodtype;
 
-import java.util.List;
-
+import com.uacity.admin.dao.ProdTypeDao;
+import com.uacity.admin.domain.ProdType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ws.db.dao.ProdTypeDao;
-import com.ws.db.model.ProdType;
+import java.util.List;
 
 @Service("prodtypeService")
 public class ProdTypeServiceImpl implements ProdTypeService {

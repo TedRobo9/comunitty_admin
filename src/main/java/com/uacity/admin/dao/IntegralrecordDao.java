@@ -1,11 +1,8 @@
-package com.ws.db.dao;
+package com.uacity.admin.dao;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.uacity.admin.domain.Integralrecord;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
-import com.ws.db.model.Integralrecord;
 
 public interface IntegralrecordDao extends JpaRepository<Integralrecord, Integer>{
 
