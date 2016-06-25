@@ -27,13 +27,13 @@
 <div class="templatemo-content-widget templatemo-login-widget white-bg">
     <header class="text-center">
         <div class="square"></div>
-        <h1>Visual Admin</h1>
+        <h1>UA City Admin</h1>
     </header>
     <form action="index.html" class="templatemo-login-form">
         <div class="form-group">
             <div class="input-group">
                 <div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
-                <input type="text" class="form-control" placeholder="js@dashboard.com">
+                <input type="text" class="form-control" placeholder="admin">
             </div>
         </div>
         <div class="form-group">
