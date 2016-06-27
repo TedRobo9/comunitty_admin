@@ -1,7 +1,5 @@
 package com.uacity.admin.controller;
 
-import com.uacity.admin.domain.User;
-import com.uacity.admin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,9 +16,6 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/")
 public class MainController {
 
-    @Autowired
-    UserService userService;
-
 
     @RequestMapping
     @ResponseBody
@@ -29,19 +24,11 @@ public class MainController {
     }
 
 
-    @RequestMapping(value = { "/user/{id}" }, method = { RequestMethod.GET })
-    @ResponseBody
-    public User findOne(@PathVariable("id") String id ) throws Exception {
-        Future<User> res = userService.findOne(id);
-        return res.get(1000, TimeUnit.MILLISECONDS);
-    }
-
 
     @RequestMapping(value = { "/user" }, method = { RequestMethod.GET })
     @ResponseBody
     public String register( @RequestParam("name") String name ) {
-        userService.addUser(name);
-        return "success";
+        return "login";
     }
 
 

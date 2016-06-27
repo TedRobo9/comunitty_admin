@@ -5,10 +5,9 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
 /**
- * Created by Administrator on 2016/6/28 0028.
+ * Created by Ted on 16/4/21.
  */
-public abstract class AbstractSettings {
-
+public class AbstractSettings {
     private static ObjectMapper mapper = new ObjectMapper();
 
     @Override

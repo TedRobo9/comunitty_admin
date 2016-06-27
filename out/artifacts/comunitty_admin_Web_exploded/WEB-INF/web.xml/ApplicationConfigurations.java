@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-@EnableConfigurationProperties(value = {ConnectionSettings.class})
+@EnableConfigurationProperties({ JdbcConnectionSettings.class })
 public class ApplicationConfigurations {
 }
