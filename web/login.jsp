@@ -19,9 +19,9 @@
     http://www.templatemo.com/preview/templatemo_455_visual_admin
     -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
-    <link href="static/css/font-awesome.min.css" rel="stylesheet">
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/css/templatemo-style.css" rel="stylesheet">
+    <link href="WEB-INF/static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="WEB-INF/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="WEB-INF/static/css/templatemo-style.css" rel="stylesheet">
 </head>
 <body class="light-gray-bg">
 <div class="templatemo-content-widget templatemo-login-widget white-bg">
