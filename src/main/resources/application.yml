@@ -1,6 +1,6 @@
 jdbc:
   driver: com.mysql.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/uacity
+  url: jdbc:mysql://123.207.120.134:3306/uacity
   username: root
   password: wapwap12
   maxActive: 3
@@ -13,3 +13,4 @@ jdbc:
   testWhileIdle: true
   timeBetweenEvictionRunsMillis: 60000
   minEvictableIdleTimeMillis: -1
+

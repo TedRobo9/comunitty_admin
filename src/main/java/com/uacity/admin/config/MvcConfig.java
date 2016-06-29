@@ -1,7 +1,10 @@
 package com.uacity.admin.config;
 
+import org.springframework.boot.autoconfigure.velocity.VelocityProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver;
 
 /**
  * Created by Administrator on 2016/6/28 0028.
@@ -25,5 +28,13 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");
         registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/images/");
+    }
+
+    @Bean(name = "velocityViewResolver")
+    public VelocityLayoutViewResolver velocityViewResolver(VelocityProperties properties) {
+        VelocityLayoutViewResolver resolver = new VelocityLayoutViewResolver();
+        properties.applyToViewResolver(resolver);
+        resolver.setLayoutUrl("layout/default.vm");
+        return resolver;
     }
 }

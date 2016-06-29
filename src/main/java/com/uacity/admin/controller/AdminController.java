@@ -7,6 +7,7 @@ import com.uacity.admin.service.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,6 +39,14 @@ public class AdminController {
         modelMap.put("data", p.getContent()); 
         modelMap.put("success", "true");  
         return modelMap;
+	}
+
+	@RequestMapping(value="/list")
+	public String list(Model model){
+		System.out.println("list>>>>>>>>>>>>");
+		Page<AdminInfo> p = adminService.search("", "", 0);
+		model.addAttribute("items", p.getContent());
+		return "list";
 	}
 	
 	@RequestMapping(value="/add")

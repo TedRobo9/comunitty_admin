@@ -17,8 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class MainController {
 
 
-    @RequestMapping
-    @ResponseBody
+    @RequestMapping("/index")
     public String index() {
         return "login";
     }
