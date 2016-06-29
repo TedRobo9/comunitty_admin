@@ -23,10 +23,12 @@
 
 
     <div class="templatemo-content col-1 light-gray-bg">
+
         #parse("/templates/_banner.vm")
-        <!-- View abc.vm is inserted here -->
-        <!-- Noi dung View abc.vm se duoc tren tai day -->
+
+        <div class="templatemo-content-container">
         $screen_content
+        </div>
         #parse("/templates/_footer.vm")
     </div>
 

@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,15 +43,14 @@ public class AdminController {
 		System.out.println("list>>>>>>>>>>>>");
 		Page<AdminInfo> p = adminService.search("", "", 0);
 		model.addAttribute("items", p.getContent());
-		return "list";
+		return "admininfo/list";
 	}
 	
 	@RequestMapping(value="/add")
-	public String add(javax.servlet.http.HttpServletRequest request){
+	public String add(Model model){
 		System.out.println("add>>>>>>>>>>>>");
-		request.setAttribute("admin", new AdminInfo());
-		request.setAttribute("oper", "add");
-		return "/view/sys_user/sys_admin_edit";
+		model.addAttribute("adminInfo", new AdminInfo());
+		return "admininfo/detail";
 	}
 	
 	@RequestMapping(value="/edit")
@@ -73,9 +69,9 @@ public class AdminController {
 		return "/view/sys_user/sys_admin_edit";
 	}
 	
-	@RequestMapping(value="/save", method = RequestMethod.POST, consumes="application/json")
+	@RequestMapping(value="/save", method = RequestMethod.POST)
 	@ResponseBody 
-	public Map<String, Object> save(@RequestBody AdminInfo admin){
+	public Map<String, Object> save(@ModelAttribute("adminInfo") AdminInfo admin){
 		System.out.println("save>>>>>>>>>>>>" + admin.getOper());
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		if(admin.getPassword().equals(admin.getPassword2())){

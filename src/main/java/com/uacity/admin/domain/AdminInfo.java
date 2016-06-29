@@ -26,6 +26,9 @@ public class AdminInfo {
 	
 	@Column(name="password") 
 	private String password;
+
+	@Column(name="email")
+	private String email;
 	
 	@Transient
 	private String password2;
@@ -157,6 +160,12 @@ public class AdminInfo {
 	public void setOptdate(Date optdate) {
 		this.optdate = optdate;
 	}
-	
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
