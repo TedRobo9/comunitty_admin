@@ -20,26 +20,13 @@
             <td>$item.realname</td>
             <td>$item.uphone</td>
             <td>$item.isvalid</td>
-            <td><a href="" class="templatemo-edit-btn">Edit</a></td>
+            <td><a href="edit/userid/$item.userid" class="templatemo-edit-btn">Edit</a></td>
             <td><a href="" class="templatemo-link">Action</a></td>
-            <td><a href="" class="templatemo-link">Delete</a></td>
+            <td><a href="delete/userid/$item.userid" class="templatemo-link">Delete</a></td>
         </tr>
         #end
 
         </tbody>
     </table>
 </div>
-<div class="pagination-wrap">
-    <ul class="pagination">
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-            <a href="#" aria-label="Next">
-                <span aria-hidden="true"><i class="fa fa-play"></i></span>
-            </a>
-        </li>
-    </ul>
-</div>
+#listpage($totalPage $page)

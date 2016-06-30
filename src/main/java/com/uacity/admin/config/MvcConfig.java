@@ -26,8 +26,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");
-        registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/images/");
+        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+        registry.addResourceHandler("/images/**").addResourceLocations("/images/");
     }
 
     @Bean(name = "velocityViewResolver")
