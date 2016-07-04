@@ -14,3 +14,6 @@ jdbc:
   timeBetweenEvictionRunsMillis: 60000
   minEvictableIdleTimeMillis: -1
 
+spring.velocity.properties.velocimacro.library: /templates/macro.vm
+spring.velocity.properties.velocimacro.library.autoreload: true
+

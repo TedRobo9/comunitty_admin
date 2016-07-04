@@ -1,0 +1,32 @@
+<div class="panel panel-default table-responsive">
+    <table class="table table-striped table-bordered templatemo-user-table">
+        <thead>
+        <tr>
+            <td><a href="" class="white-text templatemo-sort-by">序号 <span class="caret"></span></a></td>
+            <td><a href="" class="white-text templatemo-sort-by">用户名 <span class="caret"></span></a></td>
+            <td><a href="" class="white-text templatemo-sort-by">姓名 <span class="caret"></span></a></td>
+            <td><a href="" class="white-text templatemo-sort-by">电话号码 <span class="caret"></span></a></td>
+            <td><a href="" class="white-text templatemo-sort-by">状态 <span class="caret"></span></a></td>
+            <td>Edit</td>
+            <td>Action</td>
+            <td>Delete</td>
+        </tr>
+        </thead>
+        <tbody>
+        #foreach($item in $items)
+        <tr>
+            <td>$velocityCount</td>
+            <td>$item.username</td>
+            <td>$item.realname</td>
+            <td>$item.uphone</td>
+            <td>$item.isvalid</td>
+            <td><a href="edit/userid/$item.userid" class="templatemo-edit-btn">Edit</a></td>
+            <td><a href="" class="templatemo-link">Action</a></td>
+            <td><a href="delete/userid/$item.userid" class="templatemo-link">Delete</a></td>
+        </tr>
+        #end
+
+        </tbody>
+    </table>
+</div>
+#listpage($totalPage $page)

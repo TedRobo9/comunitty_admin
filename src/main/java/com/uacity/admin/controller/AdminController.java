@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,70 +43,42 @@ public class AdminController {
 		System.out.println("list>>>>>>>>>>>>");
 		Page<AdminInfo> p = adminService.search("", "", 0);
 		model.addAttribute("items", p.getContent());
-		return "list";
+		model.addAttribute("totalPage", p.getTotalPages());
+		model.addAttribute("page", 1);
+		return "admininfo/list";
 	}
 	
 	@RequestMapping(value="/add")
-	public String add(javax.servlet.http.HttpServletRequest request){
+	public String add(Model model){
 		System.out.println("add>>>>>>>>>>>>");
-		request.setAttribute("admin", new AdminInfo());
-		request.setAttribute("oper", "add");
-		return "/view/sys_user/sys_admin_edit";
+		model.addAttribute("adminInfo", new AdminInfo());
+		return "admininfo/detail";
 	}
-	
-	@RequestMapping(value="/edit")
-	public String edit(javax.servlet.http.HttpServletRequest request){
+
+	@RequestMapping(value="/edit/userid/{userid}")
+	public String edit(@PathVariable("userid") int userid, Model model){
 		System.out.println("edit>>>>>>>>>>>>");
-		AdminInfo admin;
-		if(request.getParameter("userid") == null || "".equals(request.getParameter("userid"))){
-			String username = request.getSession().getAttribute("username").toString();
-			admin = adminService.getByName(username);
-		}else{
-			int id = Integer.parseInt(request.getParameter("userid"));
-			admin = adminService.getById(id);
-		}
-		request.setAttribute("admin", admin);
-		request.setAttribute("oper", "edit");
-		return "/view/sys_user/sys_admin_edit";
+		AdminInfo admin = adminService.getById(userid);
+		model.addAttribute("adminInfo", admin);
+		return detailPage();
+	}
+
+	@RequestMapping("/detailpage")
+	public String detailPage() {
+		return "admininfo/detail";
 	}
 	
-	@RequestMapping(value="/save", method = RequestMethod.POST, consumes="application/json")
-	@ResponseBody 
-	public Map<String, Object> save(@RequestBody AdminInfo admin){
-		System.out.println("save>>>>>>>>>>>>" + admin.getOper());
-		Map<String, Object> modelMap = new HashMap<String, Object>();
-		if(admin.getPassword().equals(admin.getPassword2())){
-			if(admin.getPassword().equals("******") || admin.getPassword2().equals("******")){
-				AdminInfo a = adminService.getById(admin.getUserid());
-				admin.setPassword(a.getPassword());
-			}else{
-				admin.setPassword(MD5Util.MD5Encode(admin.getPassword()));
-			}
-			
-			System.out.println(admin.getRealname());
-			adminService.save(admin);
-			modelMap.put("success", "true"); 
-		}else{
-			modelMap.put("success", "false");
-			modelMap.put("message", "两次密码不一致！");
-		}
-        return modelMap;
+	@RequestMapping(value="/save", method = RequestMethod.POST)
+	public String save(@ModelAttribute("adminInfo") AdminInfo admin){
+		adminService.save(admin);
+		return "redirect:list";
 	}
 	
-	@RequestMapping(value="/delete")
-	@ResponseBody 
-	public Map<String, Object> delete(javax.servlet.http.HttpServletRequest request){
-		System.out.println("delete>>>>>>>>>>>>");
-		Map<String, Object> modelMap = new HashMap<String, Object>();
-		try {
-			int id = Integer.parseInt(request.getParameter("userid"));
-			adminService.deleteById(id);
-		} catch (Exception e) {
-			modelMap.put("success", "false"); 
-			return modelMap;
-		}
-        modelMap.put("success", "true");  
-        return modelMap;
+	@RequestMapping(value="/delete/userid/{userid}")
+	public String delete(@PathVariable("userid") int userid){
+		System.out.println("delete>>>>>>>>>>>>"+userid);
+		adminService.deleteById(userid);
+		return "redirect:/adminInfo/list";
 	}
 	
 	public AdminService getAdminService() {

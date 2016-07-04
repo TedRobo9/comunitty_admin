@@ -1,5 +1,6 @@
 package com.uacity.admin.service.admin;
 
+import com.uacity.admin.common.util.SystemConstant;
 import com.uacity.admin.dao.AdminDao;
 import com.uacity.admin.domain.AdminInfo;
 import com.uacity.admin.service.admin.AdminService;
@@ -22,7 +23,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Page<AdminInfo> search(String userName,
 			String realName, int page) {
-		Pageable pa = new PageRequest(page, 10);
+		Pageable pa = new PageRequest(page, SystemConstant.pageSize);
 		return dao.findByUsernameContainingAndRealnameContaining(userName, realName, pa);
 	}
 

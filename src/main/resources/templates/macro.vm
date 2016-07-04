@@ -1,0 +1,37 @@
+#macro(listpage $totalPage $page)
+    #set($startPage = $page - 3)
+    #set($endPage = $page + 3)
+    #if($endPage > $totalPage)
+        #set($startPage = $totalPage - 3 * 2)
+        #set($endPage = $totalPage)
+    #end
+    #if($startPage < 1)
+        #set($startPage = 1)
+        #set($endPage = $totalPage)
+    #end
+<div class="pagination-wrap">
+    <ul class="pagination">
+        #if($page > 1)
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true"><i class="fa fa-chevron-left"></i></span>
+                </a>
+            </li>
+        #end
+        #foreach($num in [$startPage..$endPage])
+            #if($num == $page)
+                <li class="active"><a href="#">$num</a></li>
+            #else
+                <li><a href="#">$num</a></li>
+            #end
+        #end
+        #if($page < $totalPage)
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true"><i class="fa fa-play"></i></span>
+                </a>
+            </li>
+        #end
+    </ul>
+</div>
+#end
