@@ -1,9 +1,6 @@
 package com.uacity.admin.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by eegijmc on 7/4/2016.
@@ -11,6 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "uac_stats", schema = "ua_city", catalog = "")
 public class UacStatsEntity {
+    private int statsId;
     private int accessTime;
     private String ipAddress;
     private int visitTimes;
@@ -21,6 +19,16 @@ public class UacStatsEntity {
     private String refererDomain;
     private String refererPath;
     private String accessUrl;
+
+    @Id
+    @Column(name = "stat_id")
+    public int getStatsId() {
+        return statsId;
+    }
+
+    public void setStatsId(int statsId) {
+        this.statsId = statsId;
+    }
 
     @Basic
     @Column(name = "access_time")
