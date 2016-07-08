@@ -5,11 +5,21 @@
         <div class="row form-group">
             <div class="col-lg-6 col-md-6 form-group">
                 <label for="inputFirstName">用户名</label>
-                <input type="text" class="form-control" name="username" id="username" value="$!adminInfo.username" placeholder="John">
+                <input type="text" class="form-control" name="username" id="username" value="$!adminInfo.username" placeholder="">
             </div>
             <div class="col-lg-6 col-md-6 form-group">
                 <label for="inputLastName">姓名</label>
-                <input type="text" class="form-control" name="realname" id="realname" value="$!adminInfo.realname" placeholder="Smith">
+                <input type="text" class="form-control" name="realname" id="realname" value="$!adminInfo.realname" placeholder="">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputUsername">密码</label>
+                <input type="password" class="form-control" name="password" id="password" value="$!adminInfo.password" placeholder="">
+            </div>
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputEmail">确认密码</label>
+                <input type="password" class="form-control" name="password2" id="password2" value="$!adminInfo.password2" placeholder="">
             </div>
         </div>
         <div class="row form-group">

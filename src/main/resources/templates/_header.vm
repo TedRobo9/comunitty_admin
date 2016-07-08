@@ -4,7 +4,7 @@
         <h1>UA CITY Admin</h1>
     </header>
     <div class="profile-photo-container">
-        <img src="#springUrl('/images/profile-photo.jpg')" alt="Profile Photo" class="img-responsive">
+        <img src="#springUrl('/static/images/profile-photo.jpg')" alt="Profile Photo" class="img-responsive">
         <div class="profile-photo-overlay"></div>
     </div>
     <!-- Search box -->

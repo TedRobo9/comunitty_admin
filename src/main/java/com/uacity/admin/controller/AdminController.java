@@ -70,6 +70,9 @@ public class AdminController {
 	
 	@RequestMapping(value="/save", method = RequestMethod.POST)
 	public String save(@ModelAttribute("adminInfo") AdminInfo admin){
+		String password = admin.getPassword();
+		password = MD5Util.MD5Encode(password);
+		admin.setPassword(password);
 		adminService.save(admin);
 		return "redirect:list";
 	}

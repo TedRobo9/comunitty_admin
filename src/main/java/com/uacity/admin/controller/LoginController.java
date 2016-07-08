@@ -16,24 +16,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller  
-@RequestMapping("/login")
+@RequestMapping("/")
 public class LoginController {
 
 	@Autowired
 	private AdminService adminService;
 	
-	@RequestMapping(value="/login222")  
-	@ResponseBody  
-	public Object test(@RequestBody AdminInfo admin){
-		Map<String, Object> modelMap = new HashMap<String, Object>(); 
-		modelMap.put("success", "true");
-		return modelMap; 
-	}
-	
 	@RequestMapping(value="/login") 
 	public String login(javax.servlet.http.HttpServletRequest request){  
-		
-//		String redirectUrl = request.getParameter("backurl");
+
 		String username = request.getParameter("username"); 
 		String password = request.getParameter("password");
 		if(password!=null){
@@ -50,7 +41,7 @@ public class LoginController {
 		}else{
 			System.out.println("password error or invalid user");
 			request.setAttribute("msg", "password error or invalid user");
-			return "redirect:/signin.jsp";
+			return "redirect:/login";
 		}
 		System.out.println(username+">>>");
 		return "/index"; 
@@ -61,7 +52,7 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		System.out.println("admin logout");
-		return "redirect:/signin.jsp"; 
+		return "redirect:/login";
 	}
 
 	
