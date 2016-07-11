@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity(name = "HC_SYS_ADMIN")
-public class AdminInfo {
+public class AdminInfo extends BaseEntity {
 
 	@Id
 	@Column(name="userid")  
@@ -42,17 +42,6 @@ public class AdminInfo {
 
 	public void setOper(String oper) {
 		this.oper = oper;
-	}
-
-	@Transient
-	private int page;
-	
-	public int getPage() {
-		return page;
-	}
-
-	public void setPage(int page) {
-		this.page = page;
 	}
 	
 	public String getPassword2() {

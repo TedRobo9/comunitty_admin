@@ -1,0 +1,57 @@
+<div class="templatemo-content-widget white-bg">
+    <h2 class="margin-bottom-10">详细信息</h2>
+    <form action="#springUrl('/wxmenu/save')" class="templatemo-login-form" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="userid" id="userid" value="$!data.id"/>
+        <div class="row form-group">
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputFirstName">名称</label>
+                <input type="text" class="form-control" name="name" id="name" value="$!data.name" placeholder="">
+            </div>
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputLastName">类型</label>
+                <input type="text" class="form-control" name="type" id="type" value="$!data.type" placeholder="">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-12 form-group">
+                <label for="inputUsername">URL</label>
+                <input type="text" class="form-control" name="value" id="value" value="$!data.value" placeholder="">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputUsername">父节点</label>
+                <select class="form-control">
+                #foreach($item in $items)
+
+                #end
+                    <option name="parentId" id="op1" value="html">HTML</option>
+                    <option name="parentId" id="op2" value="plain">Plain Text</option>
+                </select>
+                <input type="text" class="form-control" name="parentId" id="parentId" value="$!data.parentId" placeholder="">
+            </div>
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputEmail">顺序</label>
+                <input type="number" class="form-control" name="num" id="num" value="$!data.num" placeholder="">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-6 col-md-6 form-group">
+                <label class="control-label templatemo-block">状态</label>
+                <div class="templatemo-inline-block">
+                    <input type="radio" name="status" id="r4" value="true">
+                    <label for="r4" class="font-weight-400"><span></span>生效</label>
+                </div>
+                <div class="templatemo-inline-block">
+                    <input type="radio" name="status" id="r5" value="false" checked>
+                    <label for="r5" class="font-weight-400"><span></span>失效</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group text-right">
+            <button type="submit" class="templatemo-blue-button">保存</button>
+            <button type="reset" class="templatemo-white-button">重置</button>
+            <button onclick="location='list'" class="templatemo-white-button">返回</button>
+        </div>
+    </form>
+</div>
