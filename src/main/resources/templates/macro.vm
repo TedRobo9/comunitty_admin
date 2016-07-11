@@ -1,4 +1,5 @@
 #macro(listpage $totalPage $page)
+    #set($page = $page+1)
     #set($startPage = $page - 3)
     #set($endPage = $page + 3)
     #if($endPage > $totalPage)
@@ -22,7 +23,7 @@
             #if($num == $page)
                 <li class="active"><a href="#">$num</a></li>
             #else
-                <li><a href="#">$num</a></li>
+                <li><a href="javascript:void(0)" onclick="goPage($num)">$num</a></li>
             #end
         #end
         #if($page < $totalPage)
@@ -34,4 +35,12 @@
         #end
     </ul>
 </div>
+<script type="text/javascript">
+    function goPage(page_num) {
+//        alert('aaa');
+        jQuery("#p_page").attr("value",page_num-1);
+
+        document.pageForm.submit();
+    }
+</script>
 #end

@@ -1,6 +1,5 @@
 package com.uacity.admin.controller;
 
-import com.uacity.admin.common.util.MD5Util;
 import com.uacity.admin.common.util.SystemConstant;
 import com.uacity.admin.domain.AdminInfo;
 import com.uacity.admin.service.admin.AdminService;
@@ -8,15 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller  
-@RequestMapping("/adminInfo")
-public class AdminController {
+@RequestMapping("/produ")
+public class ProdController {
 
 	@Autowired
 	private AdminService adminService;
@@ -71,9 +70,6 @@ public class AdminController {
 	
 	@RequestMapping(value="/save", method = RequestMethod.POST)
 	public String save(@ModelAttribute("adminInfo") AdminInfo admin){
-		String password = admin.getPassword();
-		password = MD5Util.MD5Encode(password);
-		admin.setPassword(password);
 		adminService.save(admin);
 		return "redirect:list";
 	}

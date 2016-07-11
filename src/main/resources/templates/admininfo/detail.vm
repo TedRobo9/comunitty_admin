@@ -25,7 +25,7 @@
         <div class="row form-group">
             <div class="col-lg-6 col-md-6 form-group">
                 <label for="inputUsername">电话</label>
-                <input type="text" class="form-control" name="uphone" id="uphone" value="$!adminInfo.uphone" placeholder="Admin">
+                <input type="tel" class="form-control" name="uphone" id="uphone" value="$!adminInfo.uphone" placeholder="Admin">
             </div>
             <div class="col-lg-6 col-md-6 form-group">
                 <label for="inputEmail">邮箱</label>
