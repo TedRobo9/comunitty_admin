@@ -1,6 +1,8 @@
 package com.uacity.admin.controller;
 
+import com.uacity.admin.common.util.MessageUtil;
 import com.uacity.admin.common.util.SystemConstant;
+import com.uacity.admin.common.util.WeChatClient;
 import com.uacity.admin.domain.WxMenu;
 import com.uacity.admin.service.wxmenu.WxMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +76,17 @@ public class WxMenuController {
         System.out.println("delete>>>>>>>>>>>>"+id);
         service.delete(id);
         return "redirect:/wxmenu/list";
+    }
+
+    @RequestMapping(value = "/create")
+    public String create(Model model){
+        if(WeChatClient.getAccessToken()==null){
+            WeChatClient.initAccessToken();
+        }
+
+        WeChatClient.initMenu();
+        return "index";
+
     }
 
 }

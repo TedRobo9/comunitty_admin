@@ -1,0 +1,36 @@
+{
+  "button": [{
+    "name": "通知",
+    "sub_button": [{
+      "type": "view",
+      "name": "小区简介",
+      "url": "http://123.207.120.134/ua/adminInfo/add"
+    }, {
+      "type": "view",
+      "name": "小区通知",
+      "url": "http://123.207.120.134/ua/adminInfo/add"
+    }, {
+      "type": "view",
+      "name": "小区活动",
+      "url": "http://123.207.120.134/ua/adminInfo/add"
+    }]
+  }, {
+    "name": "购物",
+    "sub_button": [{
+      "type": "view",
+      "name": "买买买",
+      "url": "http://123.207.120.134/ua/adminInfo/add"
+    }]
+  }, {
+    "name": "服务",
+    "sub_button": [{
+      "type": "view",
+      "name": "缴费",
+      "url": "http://123.207.120.134/ua/adminInfo/add"
+    }, {
+      "type": "view",
+      "name": "投诉建议",
+      "url": "http://123.207.120.134/ua/adminInfo/add"
+    }]
+  }]
+}

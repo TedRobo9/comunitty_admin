@@ -32,9 +32,6 @@ public class WxMenu extends BaseEntity implements Serializable {
     @Column
     private Integer status = 1;// 1 激活, 0 非激活
 
-    @Column
-    private Integer num;
-
     @Column(name="parent_id")
     private Integer parentId;
 
@@ -79,14 +76,6 @@ public class WxMenu extends BaseEntity implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    public Integer getNum() {
-        return num;
-    }
-
-    public void setNum(Integer num) {
-        this.num = num;
     }
 
     public Integer getParentId() {

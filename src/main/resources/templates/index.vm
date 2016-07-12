@@ -10,7 +10,7 @@
                 <div class="col-1">
                     <div id="area_chart_div" class="templatemo-chart"></div>
                     <h3 class="text-center margin-bottom-5">Company Performance</h3>
-                    <p class="text-center">Fusce mi lacus</p>
+                    <p class="text-center">$message</p>
                 </div>
             </div>
         </div>
