@@ -19,7 +19,7 @@
     "sub_button": [{
       "type": "view",
       "name": "买买买",
-      "url": "http://123.207.120.134/ua/adminInfo/add"
+      "url": "http://123.207.120.134/ua/index"
     }]
   }, {
     "name": "服务",

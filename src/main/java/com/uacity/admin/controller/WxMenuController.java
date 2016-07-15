@@ -5,6 +5,7 @@ import com.uacity.admin.common.util.SystemConstant;
 import com.uacity.admin.common.util.WeChatClient;
 import com.uacity.admin.domain.WxMenu;
 import com.uacity.admin.service.wxmenu.WxMenuService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ import java.util.Map;
 @Controller
 @RequestMapping("/wxmenu")
 public class WxMenuController {
+
+    private static Logger logger = Logger.getLogger(WxMenuController.class);
 
     @Autowired
     public WxMenuService service;
@@ -80,8 +83,11 @@ public class WxMenuController {
 
     @RequestMapping(value = "/create")
     public String create(Model model){
-        if(WeChatClient.getAccessToken()==null){
+        String token = WeChatClient.getAccessToken();
+        if(token==null){
             WeChatClient.initAccessToken();
+        }else{
+            logger.info("access token:"+token);
         }
 
         WeChatClient.initMenu();
