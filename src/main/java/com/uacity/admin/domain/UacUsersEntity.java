@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 @Entity
 @javax.persistence.Table(name = "uac_users", schema = "ua_city", catalog = "")
 public class UacUsersEntity {
+
     private long userId;
 
     @Id
@@ -28,7 +29,7 @@ public class UacUsersEntity {
     private String openid;
 
     @Basic
-    @javax.persistence.Column(name = "openid")
+    @javax.persistence.Column(name = "open_id")
     public String getOpenid() {
         return openid;
     }
@@ -40,7 +41,7 @@ public class UacUsersEntity {
     private String nickname;
 
     @Basic
-    @javax.persistence.Column(name = "nickname")
+    @javax.persistence.Column(name = "nick_name")
     public String getNickname() {
         return nickname;
     }
@@ -52,7 +53,7 @@ public class UacUsersEntity {
     private String headimgurl;
 
     @Basic
-    @javax.persistence.Column(name = "headimgurl")
+    @javax.persistence.Column(name = "head_img_url")
     public String getHeadimgurl() {
         return headimgurl;
     }

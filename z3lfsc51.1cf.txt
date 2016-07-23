@@ -1,0 +1,48 @@
+﻿add
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   src/main/java/com/uacity/admin/Application.java
+#	modified:   src/main/java/com/uacity/admin/config/MvcConfig.java
+#	new file:   src/main/java/com/uacity/admin/controller/ShopController.java
+#	new file:   src/main/java/com/uacity/admin/controller/ShopTypeController.java
+#	new file:   src/main/java/com/uacity/admin/dao/UacShopDao.java
+#	new file:   src/main/java/com/uacity/admin/dao/UacShopTypeDao.java
+#	modified:   src/main/java/com/uacity/admin/domain/BaseEntity.java
+#	modified:   src/main/java/com/uacity/admin/domain/UacShopEntity.java
+#	modified:   src/main/java/com/uacity/admin/domain/UacShopTypeEntity.java
+#	modified:   src/main/java/com/uacity/admin/domain/UacUsersEntity.java
+#	modified:   src/main/java/com/uacity/admin/filter/SecurityFilter.java
+#	new file:   src/main/java/com/uacity/admin/service/shop/UacShopService.java
+#	new file:   src/main/java/com/uacity/admin/service/shop/UacShopServiceImpl.java
+#	new file:   src/main/java/com/uacity/admin/service/shopType/UacShopTypeService.java
+#	new file:   src/main/java/com/uacity/admin/service/shopType/UacShopTypeServiceImpl.java
+#	modified:   src/main/resources/application.yml
+#	modified:   src/main/resources/templates/macro.vm
+#	modified:   src/main/resources/templates/shop/detail.vm
+#	modified:   src/main/resources/templates/shop/list.vm
+#	new file:   src/main/resources/templates/shoptype/detail.vm
+#	new file:   src/main/resources/templates/shoptype/list.vm
+#	new file:   target/classes/application.yml
+#
+# Changes not staged for commit:
+#	modified:   .idea/artifacts/comunitty_admin_war_exploded.xml
+#	modified:   .idea/compiler.xml
+#	modified:   .idea/misc.xml
+#	modified:   .idea/workspace.xml
+#	modified:   comunitty.admin.iml
+#	modified:   src/main/java/com/uacity/admin/config/DatabaseConfig.java
+#
+# Untracked files:
+#	target/classes/com/
+#	target/classes/log4j.properties
+#	target/classes/rest/
+#	target/classes/sql/
+#	target/classes/templates/
+#	target/comunitty.admin-1.0-SNAPSHOT.war
+#	target/comunitty.admin-1.0-SNAPSHOT/
+#
+

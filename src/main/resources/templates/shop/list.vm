@@ -1,15 +1,15 @@
 <div class="panel panel-default margin-10">
     <div class="panel-body">
         <form action="#springUrl('/shop/search')" class="templatemo-login-form" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="page" id="page" value="$!adminInfo.page"/>
+            <input type="hidden" name="page" id="page" value="$!shop.page"/>
             <div class="row form-group">
                 <div class="col-lg-6 col-md-6 form-group">
-                    <label for="inputUsername">名</label>
-                    <input type="text" class="form-control" name="username" id="username" value="$!adminInfo.username" placeholder="">
+                    <label for="inputUsername">名称</label>
+                    <input type="text" class="form-control" name="username" id="username" value="$!shop.name" placeholder="">
                 </div>
                 <div class="col-lg-6 col-md-6 form-group">
                     <label for="inputRealName"></label>
-                    <input type="text" class="form-control" name="realname" id="realname" value="$!adminInfo.realname" placeholder="">
+                    <input type="text" class="form-control" name="realname" id="realname" value="$!shop.address" placeholder="">
                 </div>
             </div>
             <div class="row form-group">
@@ -39,13 +39,13 @@
         #foreach($item in $items)
         <tr>
             <td>$velocityCount</td>
-            <td>$item.username</td>
-            <td>$item.realname</td>
-            <td>$item.uphone</td>
-            <td>$item.isvalid</td>
-            <td><a href="edit/userid/$item.userid" class="templatemo-edit-btn">Edit</a></td>
+            <td>$item.name</td>
+            <td>$item.address</td>
+            <td>$item.phone</td>
+            <td>$item.valid</td>
+            <td><a href="edit/$item.id" class="templatemo-edit-btn">Edit</a></td>
             <td><a href="" class="templatemo-link">Action</a></td>
-            <td><a href="delete/userid/$item.userid" class="templatemo-link">Delete</a></td>
+            <td><a href="delete/$item.id" class="templatemo-link">Delete</a></td>
         </tr>
         #end
 
@@ -53,8 +53,8 @@
     </table>
 </div>
 <form name="pageForm" action="#springUrl('/shop/search')" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="page" id="p_page" value="$!adminInfo.page"/>
-    <input type="hidden" name="username" id="p_username" value="$!adminInfo.username"/>
-    <input type="hidden" name="realname" id="p_realname" value="$!adminInfo.realname"/>
+    <input type="hidden" name="page" id="p_page" value="$!shop.page"/>
+    <input type="hidden" name="username" id="p_username" value="$!shop.name"/>
+    <input type="hidden" name="realname" id="p_realname" value="$!shop.address"/>
 </form>
 #listpage($totalPage $page)

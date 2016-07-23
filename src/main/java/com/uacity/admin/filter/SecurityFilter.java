@@ -28,31 +28,22 @@ public class SecurityFilter extends HttpServlet implements Filter {
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();  
         if(session.getAttribute("username") == null){
-//        	System.out.println(request.getRequestURI());
         	String uri = request.getRequestURI();	
         	String ctxPath = request.getContextPath();
-        	String signinPath = ctxPath + "/signin.jsp";
-        	String loginPath = ctxPath + "/login/login.do";
+        	String signinPath = ctxPath + "/login";
+        	String loginPath = ctxPath + "/login";
         	if(uri.startsWith(signinPath) || uri.startsWith(loginPath)){
         		arg2.doFilter(arg0, arg1); 
         		return;
         	}
-        	response.sendRedirect(request.getContextPath() + "/signin.jsp");
+        	response.sendRedirect(request.getContextPath() + "/logout");
         	return;
-//        	String usercode = (String) request.getRemoteUser();
-//            String url=request.getRequestURI();
-//            if(usercode==null || "".equals(usercode)) {        
-//                 if(url!=null && !url.equals("") && ( url.indexOf("signin")<0 && url.indexOf("login")<0 )) {     
-//                     response.sendRedirect(request.getContextPath() + "/signin.jsp?backurl=" + url);     
-//                     return ;     
-//                 }                
-//             }     
         }else{
         	//TODO login logic
         	if("true".equals(session.getAttribute("login"))){
         		
         	}else{
-        		response.sendRedirect(request.getContextPath() + "/signin.jsp");
+        		response.sendRedirect(request.getContextPath() + "/logout");
             	return;
         	}
         }

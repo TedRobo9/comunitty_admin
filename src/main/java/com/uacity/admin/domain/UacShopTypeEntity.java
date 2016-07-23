@@ -21,8 +21,7 @@ public class UacShopTypeEntity extends BaseEntity{
     @Column(name = "is_top")
     private boolean top;
 
-
-    @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id",fetch=FetchType.LAZY)
     private List<UacShopEntity> shops;
 
     public int getId() {

@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "uac_shop", schema = "ua_city")
-public class UacShopEntity {
+public class UacShopEntity extends BaseEntity{
 
     @Id
     @Column(name = "shop_id")
@@ -17,16 +17,16 @@ public class UacShopEntity {
     @Column(name = "shop_name")
     private String name;
 
-    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional = false)
-    @JoinColumn(name = "shop_type")
+    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional = true)
+    @JoinColumn(name = "shop_type", referencedColumnName = "shop_type_id")
     private UacShopTypeEntity type;
 
-    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional = false)
-    @JoinColumn(name = "shop_keeper")
+    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional = true)
+    @JoinColumn(name = "shop_keeper", referencedColumnName = "user_id")
     private UacUsersEntity keeper;
 
     @OneToOne(optional = true)
-    @JoinColumn(name = "shop_sales")
+    @JoinColumn(name = "shop_sales", referencedColumnName = "user_id")
     private UacUsersEntity sales;
 
     @Column(name = "shop_address")

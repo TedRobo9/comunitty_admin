@@ -1,0 +1,45 @@
+<div class="templatemo-content-widget white-bg">
+    <h2 class="margin-bottom-10">详细信息</h2>
+    <form action="#springUrl('/shopType/save')" class="templatemo-login-form" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="userid" id="userid" value="$!data.id"/>
+        <div class="row form-group">
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputFirstName">名称</label>
+                <input type="text" class="form-control" name="name" id="name" value="$!data.name" placeholder="">
+            </div>
+            <div class="col-lg-6 col-md-6 form-group">
+                <label class="control-label templatemo-block">置顶</label>
+                <div class="templatemo-inline-block">
+                    <input type="radio" name="top" id="r1" value="true">
+                    <label for="r1" class="font-weight-400"><span></span>是</label>
+                </div>
+                <div class="templatemo-inline-block">
+                    <input type="radio" name="top" id="r2" value="false" checked>
+                    <label for="r2" class="font-weight-400"><span></span>否</label>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputEmail">顺序</label>
+                <input type="number" class="form-control" name="num" id="num" value="$!data.num" placeholder="">
+            </div>
+            <div class="col-lg-6 col-md-6 form-group">
+                <label class="control-label templatemo-block">状态</label>
+                <div class="templatemo-inline-block">
+                    <input type="radio" name="valid" id="r3" value="true">
+                    <label for="r3" class="font-weight-400"><span></span>生效</label>
+                </div>
+                <div class="templatemo-inline-block">
+                    <input type="radio" name="valid" id="r4" value="false" checked>
+                    <label for="r4" class="font-weight-400"><span></span>失效</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group text-right">
+            <button type="submit" class="templatemo-blue-button">保存</button>
+            <button type="reset" class="templatemo-white-button">重置</button>
+            <button onclick="location='list'" class="templatemo-white-button">返回</button>
+        </div>
+    </form>
+</div>

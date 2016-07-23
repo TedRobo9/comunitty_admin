@@ -1,54 +1,89 @@
 <div class="templatemo-content-widget white-bg">
     <h2 class="margin-bottom-10">详细信息</h2>
-    <form action="#springUrl('/adminInfo/save')" class="templatemo-login-form" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" id="id" value="$!data.userid"/>
+    <form action="#springUrl('/shopAction/save')" class="templatemo-login-form" modelAttribute="data" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" id="id" value="$!data.id"/>
         <div class="row form-group">
             <div class="col-lg-6 col-md-6 form-group">
                 <label for="inputFirstName">名称</label>
-                <input type="text" class="form-control" name="name" id="username" value="$!adminInfo.username" placeholder="">
-            </div>
-            <div class="col-lg-6 col-md-6 form-group">
-                <label for="inputLastName">姓名</label>
-                <input type="text" class="form-control" name="realname" id="realname" value="$!adminInfo.realname" placeholder="">
+                <input type="text" class="form-control" name="name" id="name" value="$!data.name" placeholder="">
             </div>
         </div>
         <div class="row form-group">
             <div class="col-lg-6 col-md-6 form-group">
-                <label for="inputUsername">密码</label>
-                <input type="password" class="form-control" name="password" id="password" value="$!adminInfo.password" placeholder="">
+                <label for="inputFirstName">类型</label>
+                <select class="form-control">
+                #foreach($shoptype in $types)
+                    #if($shoptype.id == $!data.id)
+                        <option name="type.id" value="$shoptype.id" aria-checked="true">$shoptype.name</option>
+                    #else
+                        <option name="type.id" value="$shoptype.id">$shoptype.name</option>
+                    #end
+
+                #end
+                </select>
             </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-6 form-group">
+                <label for="inputUsername">地址</label>
+                <input type="text" class="form-control" name="address" id="address" value="$!data.address" placeholder="">
+            </div>
+        </div>
+        <div class="row form-group">
             <div class="col-lg-6 col-md-6 form-group">
-                <label for="inputEmail">确认密码</label>
-                <input type="password" class="form-control" name="password2" id="password2" value="$!adminInfo.password2" placeholder="">
+                <label for="inputUsername">图标</label>
+                #if ($data.thumb)
+                    <div><img style="width: 100px;" class="img-rounded" src="$data.thumb" /></div>
+                #end
+                <input type="file" name="mythumb" id="thumb"/>
+                <output id="filesInfo"></output>
             </div>
+            <script type='text/javascript'>
+            function fileSelect(evt) {
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+            var files = evt.target.files;
+
+            var result = '';
+            var file;
+            for (var i = 0; file = files[i]; i++) {
+            // if the file is not an image, continue
+            if (!file.type.match('image.*')) {
+            continue;
+            }
+
+            reader = new FileReader();
+            reader.onload = (function (tFile) {
+            return function (evt) {
+            document.getElementById('filesInfo').innerHTML='<img style="width: 100px;" class="img-rounded" src="' + evt.target.result + '" />';
+            };
+            }(file));
+            reader.readAsDataURL(file);
+            }
+            } else {
+            alert('The File APIs are not fully supported in this browser.');
+            }
+            }
+
+            document.getElementById('thumb').addEventListener('change', fileSelect, false);
+            </script>
         </div>
         <div class="row form-group">
             <div class="col-lg-6 col-md-6 form-group">
                 <label for="inputUsername">电话</label>
-                <input type="tel" class="form-control" name="uphone" id="uphone" value="$!adminInfo.uphone" placeholder="Admin">
-            </div>
-            <div class="col-lg-6 col-md-6 form-group">
-                <label for="inputEmail">邮箱</label>
-                <input type="email" class="form-control" name="email" id="email" value="$!adminInfo.email" placeholder="admin@company.com">
+                <input type="text" class="form-control" name="phone" id="phone" value="$!data.phone" placeholder="">
             </div>
         </div>
         <div class="row form-group">
             <div class="col-lg-6 col-md-6 form-group">
                 <label class="control-label templatemo-block">状态</label>
                 <div class="templatemo-inline-block">
-                    <input type="radio" name="isvalid" id="r4" value="true">
-                    <label for="r4" class="font-weight-400"><span></span>生效</label>
+                    <input type="radio" name="valid" id="r1" value="true">
+                    <label for="r1" class="font-weight-400"><span></span>生效</label>
                 </div>
                 <div class="templatemo-inline-block">
-                    <input type="radio" name="isvalid" id="r5" value="false" checked>
-                    <label for="r5" class="font-weight-400"><span></span>失效</label>
+                    <input type="radio" name="valid" id="r2" value="false" checked>
+                    <label for="r2" class="font-weight-400"><span></span>失效</label>
                 </div>
-            </div>
-        </div>
-        <div class="row form-group">
-            <div class="col-lg-12 form-group">
-                <label class="control-label" for="inputNote">描述</label>
-                <textarea class="form-control" name="desc" id="desc" value="$!adminInfo.desc" rows="3"></textarea>
             </div>
         </div>
         <div class="form-group text-right">

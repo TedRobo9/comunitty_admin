@@ -1,11 +1,13 @@
 package com.uacity.admin.domain;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
 /**
  * Created by eegijmc on 7/11/2016.
  */
+@MappedSuperclass
 public class BaseEntity {
 
     @Column
