@@ -11,12 +11,12 @@
         <div class="row form-group">
             <div class="col-lg-6 col-md-6 form-group">
                 <label for="inputFirstName">类型</label>
-                <select class="form-control">
+                <select name="type.id" class="form-control">
                 #foreach($shoptype in $types)
-                    #if($shoptype.id == $!data.id)
-                        <option name="type.id" value="$shoptype.id" aria-checked="true">$shoptype.name</option>
+                    #if($shoptype.id == $!data.type.id)
+                        <option value="$shoptype.id" selected = "selected">$shoptype.name</option>
                     #else
-                        <option name="type.id" value="$shoptype.id">$shoptype.name</option>
+                        <option value="$shoptype.id">$shoptype.name</option>
                     #end
 
                 #end
@@ -32,11 +32,12 @@
         <div class="row form-group">
             <div class="col-lg-6 col-md-6 form-group">
                 <label for="inputUsername">图标</label>
-                #if ($data.thumb)
-                    <div><img style="width: 100px;" class="img-rounded" src="$data.thumb" /></div>
-                #end
                 <input type="file" name="mythumb" id="thumb"/>
-                <output id="filesInfo"></output>
+                <output id="filesInfo">
+                    #if ($data.thumb)
+                        <div><img style="width: 100px;" class="img-rounded" src="$data.thumb" /></div>
+                    #end
+                </output>
             </div>
             <script type='text/javascript'>
             function fileSelect(evt) {

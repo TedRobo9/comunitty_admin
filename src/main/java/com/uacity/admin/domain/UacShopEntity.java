@@ -17,11 +17,11 @@ public class UacShopEntity extends BaseEntity{
     @Column(name = "shop_name")
     private String name;
 
-    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional = true)
+    @ManyToOne(cascade = {CascadeType.REFRESH }, optional = true)
     @JoinColumn(name = "shop_type", referencedColumnName = "shop_type_id")
     private UacShopTypeEntity type;
 
-    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional = true)
+    @ManyToOne(cascade = {CascadeType.REFRESH }, optional = true)
     @JoinColumn(name = "shop_keeper", referencedColumnName = "user_id")
     private UacUsersEntity keeper;
 

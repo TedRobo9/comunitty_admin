@@ -5,5 +5,5 @@ package com.uacity.admin.common.util;
  */
 public class SystemConstant {
 
-    public final static int pageSize = 2;
+    public final static int pageSize = 5;
 }

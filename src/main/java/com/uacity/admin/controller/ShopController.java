@@ -80,8 +80,40 @@ public class ShopController {
         return "shop/list";
     }
 
-    @RequestMapping(value="/upload", method = RequestMethod.POST)
-    public String upload( @RequestParam("mythumb") MultipartFile file) {
+//    @RequestMapping(value="/upload", method = RequestMethod.POST)
+//    public String upload( @RequestParam("mythumb") MultipartFile file) {
+//        if (!file.isEmpty()) {
+//            System.out.print("file:>>>>>>>>>>>>" + file.getOriginalFilename());
+//            try {
+//                String uploadsDir = "/uploads/";
+//                String realPath2Uploads = request.getServletContext().getRealPath(uploadsDir);
+//                File dir = new File(realPath2Uploads);
+//                if (!dir.exists()) {
+//                    dir.mkdir();
+//                }
+//                String filePath = realPath2Uploads + File.separator + file.getOriginalFilename();
+//                file.transferTo(new File(filePath));
+////                entity.setThumb(uploadsDir + file.getOriginalFilename());
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//
+//        }
+//        return "";
+//    }
+
+    @RequestMapping(value="/save", method = RequestMethod.POST)
+    public String save(
+//    public String save(@RequestParam("name") String name,
+//                       @RequestParam("address") String address,
+//                       @ModelAttribute("type") UacShopTypeEntity type,
+//                       @RequestParam("phone") String phone,
+//                       @RequestParam("valid") Boolean valid,
+                        @RequestParam("mythumb") MultipartFile file,
+                        @ModelAttribute("data") UacShopEntity entity){
+
+        System.out.println("type id>>>>>>>>"+entity.getType().getId()+entity.getType().getName());
+
         if (!file.isEmpty()) {
             System.out.print("file:>>>>>>>>>>>>" + file.getOriginalFilename());
             try {
@@ -93,28 +125,13 @@ public class ShopController {
                 }
                 String filePath = realPath2Uploads + File.separator + file.getOriginalFilename();
                 file.transferTo(new File(filePath));
+                entity.setThumb(uploadsDir + file.getOriginalFilename());
 //                entity.setThumb(uploadsDir + file.getOriginalFilename());
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
         }
-        return "";
-    }
-
-    @RequestMapping(value="/save", method = RequestMethod.POST)
-    public String save(
-//    public String save(@RequestParam("name") String name,
-//                       @RequestParam("address") String address,
-//                       @ModelAttribute("type") UacShopTypeEntity type,
-//                       @RequestParam("phone") String phone,
-//                       @RequestParam("valid") Boolean valid,
-                        @ModelAttribute("data") UacShopEntity entity){
-
-        System.out.println("type id>>>>>>>>"+entity.getType().getId()+entity.getType().getName());
-
-        System.out.println("save>>>>>>>>>>>>"+entity.getName());
-//        System.out.println("save>>>>>>>>>>>>"+entity.getThumb());
         shopService.save(entity);
         return "redirect:list";
     }
