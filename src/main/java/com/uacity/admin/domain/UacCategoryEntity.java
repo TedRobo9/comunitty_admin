@@ -1,49 +1,74 @@
 package com.uacity.admin.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by eegijmc on 7/4/2016.
  */
 @Entity
-@Table(name = "uac_category", schema = "ua_city", catalog = "")
-public class UacCategoryEntity {
-    private long catId;
-    private String catName;
-    private String keywords;
-    private String catDesc;
-    private long parentId;
-    private int sortOrder;
-    private String templateFile;
-    private String measureUnit;
-    private int showInNav;
-    private String style;
-    private boolean isShow;
-    private int grade;
-    private short filterAttr;
-
+@Table(name = "uac_category", schema = "ua_city")
+public class UacCategoryEntity extends BaseEntity{
     @Id
     @Column(name = "cat_id")
-    public long getCatId() {
-        return catId;
-    }
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    public void setCatId(long catId) {
-        this.catId = catId;
-    }
-
-    @Basic
     @Column(name = "cat_name")
-    public String getCatName() {
-        return catName;
-    }
+    private String name;
 
-    public void setCatName(String catName) {
-        this.catName = catName;
-    }
-
-    @Basic
     @Column(name = "keywords")
+    private String keywords;
+
+    @Column(name = "cat_desc")
+    private String catDesc;
+
+    @Column(name = "template_file")
+    private String templateFile;
+
+    @Column(name = "measure_unit")
+    private String measureUnit;
+
+    @Column(name = "show_in_nav")
+    private int showInNav;
+
+    @Column(name = "style")
+    private String style;
+
+    @Column(name = "grade")
+    private int grade;
+
+    @Column(name = "filter_attr")
+    private short filterAttr;
+
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
+    private UacCategoryEntity parent;
+
+    @OneToMany(mappedBy="parent")
+    private List<UacCategoryEntity> children = new ArrayList<UacCategoryEntity>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "goodsId",fetch=FetchType.LAZY)
+    private List<UacGoodsEntity> goods;
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getKeywords() {
         return keywords;
     }
@@ -52,8 +77,6 @@ public class UacCategoryEntity {
         this.keywords = keywords;
     }
 
-    @Basic
-    @Column(name = "cat_desc")
     public String getCatDesc() {
         return catDesc;
     }
@@ -62,28 +85,23 @@ public class UacCategoryEntity {
         this.catDesc = catDesc;
     }
 
-    @Basic
-    @Column(name = "parent_id")
-    public long getParentId() {
-        return parentId;
+    public UacCategoryEntity getParent() {
+        return parent;
     }
 
-    public void setParentId(long parentId) {
-        this.parentId = parentId;
+    public void setParent(UacCategoryEntity parent) {
+        this.parent = parent;
     }
 
-    @Basic
-    @Column(name = "sort_order")
-    public int getSortOrder() {
-        return sortOrder;
+    public List<UacCategoryEntity> getChildren() {
+        return children;
     }
 
-    public void setSortOrder(int sortOrder) {
-        this.sortOrder = sortOrder;
+    public void setChildren(List<UacCategoryEntity> children) {
+        this.children = children;
     }
 
-    @Basic
-    @Column(name = "template_file")
+
     public String getTemplateFile() {
         return templateFile;
     }
@@ -92,8 +110,6 @@ public class UacCategoryEntity {
         this.templateFile = templateFile;
     }
 
-    @Basic
-    @Column(name = "measure_unit")
     public String getMeasureUnit() {
         return measureUnit;
     }
@@ -102,8 +118,6 @@ public class UacCategoryEntity {
         this.measureUnit = measureUnit;
     }
 
-    @Basic
-    @Column(name = "show_in_nav")
     public int getShowInNav() {
         return showInNav;
     }
@@ -112,8 +126,6 @@ public class UacCategoryEntity {
         this.showInNav = showInNav;
     }
 
-    @Basic
-    @Column(name = "style")
     public String getStyle() {
         return style;
     }
@@ -122,18 +134,6 @@ public class UacCategoryEntity {
         this.style = style;
     }
 
-    @Basic
-    @Column(name = "is_show")
-    public boolean isShow() {
-        return isShow;
-    }
-
-    public void setShow(boolean show) {
-        isShow = show;
-    }
-
-    @Basic
-    @Column(name = "grade")
     public int getGrade() {
         return grade;
     }
@@ -142,14 +142,20 @@ public class UacCategoryEntity {
         this.grade = grade;
     }
 
-    @Basic
-    @Column(name = "filter_attr")
     public short getFilterAttr() {
         return filterAttr;
     }
 
     public void setFilterAttr(short filterAttr) {
         this.filterAttr = filterAttr;
+    }
+
+    public List<UacGoodsEntity> getGoods() {
+        return goods;
+    }
+
+    public void setGoods(List<UacGoodsEntity> goods) {
+        this.goods = goods;
     }
 
     @Override
@@ -159,14 +165,11 @@ public class UacCategoryEntity {
 
         UacCategoryEntity that = (UacCategoryEntity) o;
 
-        if (catId != that.catId) return false;
-        if (parentId != that.parentId) return false;
-        if (sortOrder != that.sortOrder) return false;
+        if (id != that.id) return false;
         if (showInNav != that.showInNav) return false;
-        if (isShow != that.isShow) return false;
         if (grade != that.grade) return false;
         if (filterAttr != that.filterAttr) return false;
-        if (catName != null ? !catName.equals(that.catName) : that.catName != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (keywords != null ? !keywords.equals(that.keywords) : that.keywords != null) return false;
         if (catDesc != null ? !catDesc.equals(that.catDesc) : that.catDesc != null) return false;
         if (templateFile != null ? !templateFile.equals(that.templateFile) : that.templateFile != null) return false;
@@ -178,17 +181,14 @@ public class UacCategoryEntity {
 
     @Override
     public int hashCode() {
-        int result = (int) (catId ^ (catId >>> 32));
-        result = 31 * result + (catName != null ? catName.hashCode() : 0);
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (keywords != null ? keywords.hashCode() : 0);
         result = 31 * result + (catDesc != null ? catDesc.hashCode() : 0);
-        result = 31 * result + (int) (parentId ^ (parentId >>> 32));
-        result = 31 * result + sortOrder;
         result = 31 * result + (templateFile != null ? templateFile.hashCode() : 0);
         result = 31 * result + (measureUnit != null ? measureUnit.hashCode() : 0);
         result = 31 * result + showInNav;
         result = 31 * result + (style != null ? style.hashCode() : 0);
-        result = 31 * result + (isShow ? 1 : 0);
         result = 31 * result + grade;
         result = 31 * result + (int) filterAttr;
         return result;

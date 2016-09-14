@@ -2,25 +2,19 @@ package com.uacity.admin.controller;
 
 import com.uacity.admin.common.util.DateUtil;
 import com.uacity.admin.common.util.MD5Util;
-import com.uacity.admin.domain.AdminInfo;
-import com.uacity.admin.service.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller  
 @RequestMapping("/")
 public class LoginController {
 
-	@Autowired
-	private AdminService adminService;
+//	@Autowired
+//	private AdminService adminService;
 	
 	@RequestMapping(value="/login") 
 	public String login(javax.servlet.http.HttpServletRequest request){  
@@ -31,18 +25,18 @@ public class LoginController {
 			password = MD5Util.MD5Encode(password);
 		}
 		HttpSession session = request.getSession();
-		AdminInfo admin = adminService.getAdmin(username, password);
+//		AdminInfo admin = adminService.getAdmin(username, password);
 		
-		if(admin != null){
-			session.setAttribute("username", username);
-			session.setAttribute("login", "true");
-			session.setAttribute("logintime", DateUtil.getDateStr(new Date()));
-			session.setAttribute("realname", admin.getRealname());
-		}else{
-			System.out.println("password error or invalid user");
-			request.setAttribute("msg", "password error or invalid user");
-			return "redirect:/login";
-		}
+//		if(admin != null){
+//			session.setAttribute("username", username);
+//			session.setAttribute("login", "true");
+//			session.setAttribute("logintime", DateUtil.getDateStr(new Date()));
+//			session.setAttribute("realname", admin.getRealname());
+//		}else{
+//			System.out.println("password error or invalid user");
+//			request.setAttribute("msg", "password error or invalid user");
+//			return "redirect:/login";
+//		}
 		System.out.println(username+">>>");
 		return "/index"; 
 	}
@@ -53,14 +47,5 @@ public class LoginController {
 		session.invalidate();
 		System.out.println("admin logout");
 		return "redirect:/login";
-	}
-
-	
-	public AdminService getAdminService() {
-		return adminService;
-	}
-
-	public void setAdminService(AdminService adminService) {
-		this.adminService = adminService;
 	}
 }

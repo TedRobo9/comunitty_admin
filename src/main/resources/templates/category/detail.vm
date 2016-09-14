@@ -1,0 +1,115 @@
+<script type="text/javascript" src="#springUrl('/static/ckeditor/ckeditor.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/js/jquery.ztree.core.min.js')"></script>
+<link href="#springUrl('/static/css/zTreeStyle.css')" rel="stylesheet">
+<script type="text/javascript" >
+    var zTreeObj;
+    var setting = {
+        view: {
+            showLine: false,
+            selectedMulti: false
+        },
+        async: {
+            enable: true,
+            url:"#springUrl('/category.do/list')",
+            autoParam:["id=zId"],
+            otherParam:{"pid":"zTreeAsyncTest"},
+            dataFilter: filter
+        },
+        callback: {
+            onClick: setDataPid
+        }
+    };
+
+    function setDataPid(event, treeId, treeNode, clickFlag) {
+
+    }
+
+    function filter(treeId, parentNode, childNodes) {
+        if (!childNodes) return null;
+        for (var i=0, l=childNodes.length; i<l; i++) {
+            childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
+        }
+        return childNodes;
+    }
+    var zNodes = [
+        {name:"test1", open:true, children:[
+            {name:"test1_1"}, {name:"test1_2"}]},
+        {name:"test2", open:true, children:[
+            {name:"test2_1"}, {name:"test2_2"}]}
+    ];
+    $(document).ready(function(){
+        zTreeObj = $.fn.zTree.init($("#treeSelect"), setting, zNodes);
+    });
+
+    function showMenu() {
+        var catObj = $("#categorySel");
+        var catOffset = $("#categorySel").offset();
+        $("#menuContent").css({left:catOffset.left + "px", top:catOffset.top + catObj.outerHeight() + "px"}).slideDown("fast");
+        $("body").bind("mousedown", onBodyDown);
+    }
+
+    function onBodyDown(event) {
+        if (!(event.target.id == "menuBtn" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+            hideMenu();
+        }
+    }
+
+    function hideMenu() {
+        $("#menuContent").fadeOut("fast");
+        $("body").unbind("mousedown", onBodyDown);
+    }
+
+</script>
+<div class="templatemo-content-widget white-bg">
+    <h2 class="margin-bottom-10">详细信息</h2>
+    <form action="#springUrl('/category.do/save')" class="templatemo-login-form" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="userid" id="userid" value="$!data.id"/>
+        <div class="row form-group">
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputFirstName">名称</label>
+                <input type="text" class="form-control" name="name" id="name" value="$!data.name" placeholder="">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputFirstName">上级类型</label>
+                <input type="text" class="form-control" name="parent.id" id="categorySel" value="$!data.parent.name" readonly placeholder="点击选择" onclick="showMenu(); return false;">
+                <ul id="treeSelect" class="ztree" style="margin-top:0; width:160px;"></ul>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-6 col-md-6 form-group">
+                <label for="inputEmail">顺序</label>
+                <input type="number" class="form-control" name="grade" id="grade" value="$!data.grade" placeholder="">
+            </div>
+            <div class="col-lg-6 col-md-6 form-group">
+                <label class="control-label templatemo-block">状态</label>
+                <div class="templatemo-inline-block">
+                    <input type="radio" name="valid" id="r3" value="true">
+                    <label for="r3" class="font-weight-400"><span></span>生效</label>
+                </div>
+                <div class="templatemo-inline-block">
+                    <input type="radio" name="valid" id="r4" value="false" checked>
+                    <label for="r4" class="font-weight-400"><span></span>失效</label>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-12 col-md-12 form-group">
+                <label for="inputFirstName">描述</label>
+                <textarea name="catDesc" id="catDesc" rows="10" cols="80">
+                    $!data.catDesc
+                </textarea>
+                <script>
+                    CKEDITOR.replace( 'catDesc' );
+                </script>
+            </div>
+        </div>
+
+        <div class="form-group text-right">
+            <button type="submit" class="templatemo-blue-button">保存</button>
+            <button type="reset" class="templatemo-white-button">重置</button>
+            <button onclick="location='list'" class="templatemo-white-button">返回</button>
+        </div>
+    </form>
+</div>

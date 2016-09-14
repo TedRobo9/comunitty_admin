@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by eegijmc on 7/19/2016.
  */
 @Controller
-@RequestMapping("/shopType")
+@RequestMapping("/shoptype.do")
 public class ShopTypeController {
 
     @Autowired

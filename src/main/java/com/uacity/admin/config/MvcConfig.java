@@ -3,8 +3,11 @@ package com.uacity.admin.config;
 import org.springframework.boot.autoconfigure.velocity.VelocityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver;
+
+import java.text.SimpleDateFormat;
 
 /**
  * Created by Administrator on 2016/6/28 0028.
@@ -17,6 +20,13 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/").setViewName("login");
+    }
+
+    @Bean
+    public Jackson2ObjectMapperBuilder jacksonBuilder() {
+        Jackson2ObjectMapperBuilder b = new Jackson2ObjectMapperBuilder();
+        b.indentOutput(true).dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
+        return b;
     }
 
     @Override

@@ -30,3 +30,5 @@ multipart.location:  # Intermediate location of uploaded files.
 multipart.max-file-size: 128Kb # Max file size.
 multipart.max-request-size: 128Kb # Max request size.
 
+spring.http.converters.preferred-json-mapper: fastjson
+

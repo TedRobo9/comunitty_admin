@@ -1,20 +1,19 @@
 package com.uacity.admin.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
  * Created by eegijmc on 7/4/2016.
  */
 @Entity
-@javax.persistence.Table(name = "uac_goods", schema = "ua_city", catalog = "")
+@javax.persistence.Table(name = "uac_goods", schema = "ua_city")
 public class UacGoodsEntity {
     private long goodsId;
 
     @Id
     @javax.persistence.Column(name = "goods_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getGoodsId() {
         return goodsId;
     }
@@ -23,16 +22,16 @@ public class UacGoodsEntity {
         this.goodsId = goodsId;
     }
 
-    private short catId;
+    private UacCategoryEntity category;
 
-    @Basic
-    @javax.persistence.Column(name = "cat_id")
-    public short getCatId() {
-        return catId;
+    @ManyToOne(cascade = {CascadeType.REFRESH }, optional = true)
+    @JoinColumn(name = "cat_id", referencedColumnName = "cat_id")
+    public UacCategoryEntity getCategory() {
+        return category;
     }
 
-    public void setCatId(short catId) {
-        this.catId = catId;
+    public void setCategory(UacCategoryEntity category) {
+        this.category = category;
     }
 
     private String goodsSn;
@@ -487,7 +486,7 @@ public class UacGoodsEntity {
         UacGoodsEntity that = (UacGoodsEntity) o;
 
         if (goodsId != that.goodsId) return false;
-        if (catId != that.catId) return false;
+        if (category != that.category) return false;
         if (clickCount != that.clickCount) return false;
         if (brandId != that.brandId) return false;
         if (goodsNumber != that.goodsNumber) return false;
@@ -534,7 +533,6 @@ public class UacGoodsEntity {
     @Override
     public int hashCode() {
         int result = (int) (goodsId ^ (goodsId >>> 32));
-        result = 31 * result + (int) catId;
         result = 31 * result + (goodsSn != null ? goodsSn.hashCode() : 0);
         result = 31 * result + (goodsName != null ? goodsName.hashCode() : 0);
         result = 31 * result + (goodsNameStyle != null ? goodsNameStyle.hashCode() : 0);

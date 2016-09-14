@@ -1,6 +1,6 @@
 <div class="templatemo-content-widget white-bg">
     <h2 class="margin-bottom-10">详细信息</h2>
-    <form action="#springUrl('/shopType/save')" class="templatemo-login-form" method="post" enctype="multipart/form-data">
+    <form action="#springUrl('/shoptype.do/save')" class="templatemo-login-form" method="post" enctype="multipart/form-data">
         <input type="hidden" name="userid" id="userid" value="$!data.id"/>
         <div class="row form-group">
             <div class="col-lg-6 col-md-6 form-group">

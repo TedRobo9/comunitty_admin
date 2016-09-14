@@ -24,7 +24,7 @@ import java.util.Map;
  * Created by eegijmc on 7/19/2016.
  */
 @Controller
-@RequestMapping("/shopAction")
+@RequestMapping("/shop.do")
 public class ShopController {
 
     @Autowired
