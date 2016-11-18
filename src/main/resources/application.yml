@@ -1,15 +1,13 @@
 jdbc:
   driver: com.mysql.jdbc.Driver
-  url: jdbc:mysql://123.207.120.134:3306/ua_city?useUnicode=yes&characterEncoding=UTF-8
-  username: root
-  password: wapwap12
   maxActive: 3
   maxIdle: 30
   minIdle: 5
   maxWait: 3000
   validationQuery: /* ping */ select 1
   testOnBorrow: false
-  testOnReturn: false
+
+  password: wapwap12  testOnReturn: false
   testWhileIdle: true
   timeBetweenEvictionRunsMillis: 60000
   minEvictableIdleTimeMillis: -1
